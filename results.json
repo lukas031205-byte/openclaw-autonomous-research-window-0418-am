@@ -1,0 +1,53 @@
+{
+  "experiment": "Factor Separability (CNLSA Reframe)",
+  "n_images": 50,
+  "n_bootstrap": 1000,
+  "models": {
+    "clip": "vit_base_patch32_clip_224 (timm, 768-dim)",
+    "dino": "vit_small_patch14_dinov2 (timm, 384-dim)",
+    "vae": "SimpleAutoencoder CNN"
+  },
+  "metrics": {
+    "mpcs_orig": 0.012996813500067357,
+    "mpcs_recon": 0.0018118804360562912,
+    "delta_mpcs": -0.011184933064011065,
+    "r_cca_orig": 0.9999999999999998,
+    "r_cca_recon": 1.0,
+    "delta_cca": 2.220446049250313e-16,
+    "ss_orig": 0.2912023602229483,
+    "ss_recon": 0.32517527727876117,
+    "delta_ss": 0.033972917055812846,
+    "acc_orig": 0.4,
+    "acc_recon": 0.38,
+    "delta_acc": -0.020000000000000018
+  },
+  "statistical_tests": {
+    "p_value": 1.0,
+    "ci_95": [
+      -0.02864936984724102,
+      -0.010680717506715795
+    ],
+    "delta_threshold": 0.0
+  },
+  "conclusion": {
+    "mpcs_result": "FALSIFY",
+    "hypothesis": "H\u2080 cannot be rejected",
+    "p_value": 1.0,
+    "ci_95": [
+      -0.02864936984724102,
+      -0.010680717506715795
+    ],
+    "delta_mpcs": -0.011184933064011065,
+    "interpretation": "VAE encode-decode roundtrip does NOT increase semantic-structural entanglement. Factor separability hypothesis FALSIFIED for this VAE/feature combination. The CNLSA semantic drift mechanism operates through channels other than factor entanglement."
+  },
+  "timing_seconds": {
+    "model_loading": 2.4187581539154053,
+    "dataset": 1.7129778861999512,
+    "autoencoder_build": 0.04427456855773926,
+    "autoencoder_train": 222.83041882514954,
+    "feature_extraction": 21.385132312774658,
+    "metric_computation": 0.7045555114746094,
+    "bootstrap": 56.20462703704834
+  },
+  "random_seed": 42
+}
